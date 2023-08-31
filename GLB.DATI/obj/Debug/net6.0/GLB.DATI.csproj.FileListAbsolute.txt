@@ -1,0 +1,14 @@
+C:\Users\user\source\repos\GlobalDati\GLB.DATI\bin\Debug\net6.0\GLB.DATI.exe
+C:\Users\user\source\repos\GlobalDati\GLB.DATI\bin\Debug\net6.0\GLB.DATI.deps.json
+C:\Users\user\source\repos\GlobalDati\GLB.DATI\bin\Debug\net6.0\GLB.DATI.runtimeconfig.json
+C:\Users\user\source\repos\GlobalDati\GLB.DATI\bin\Debug\net6.0\GLB.DATI.dll
+C:\Users\user\source\repos\GlobalDati\GLB.DATI\bin\Debug\net6.0\GLB.DATI.pdb
+C:\Users\user\source\repos\GlobalDati\GLB.DATI\obj\Debug\net6.0\GLB.DATI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\source\repos\GlobalDati\GLB.DATI\obj\Debug\net6.0\GLB.DATI.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\GlobalDati\GLB.DATI\obj\Debug\net6.0\GLB.DATI.AssemblyInfo.cs
+C:\Users\user\source\repos\GlobalDati\GLB.DATI\obj\Debug\net6.0\GLB.DATI.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\GlobalDati\GLB.DATI\obj\Debug\net6.0\GLB.DATI.dll
+C:\Users\user\source\repos\GlobalDati\GLB.DATI\obj\Debug\net6.0\refint\GLB.DATI.dll
+C:\Users\user\source\repos\GlobalDati\GLB.DATI\obj\Debug\net6.0\GLB.DATI.pdb
+C:\Users\user\source\repos\GlobalDati\GLB.DATI\obj\Debug\net6.0\GLB.DATI.genruntimeconfig.cache
+C:\Users\user\source\repos\GlobalDati\GLB.DATI\obj\Debug\net6.0\ref\GLB.DATI.dll
