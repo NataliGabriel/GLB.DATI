@@ -93,3 +93,4 @@ C:\Users\DEV-NATALI\Desktop\GLB.DATI\GLB.DATI\obj\Debug\net6.0-windows\refint\GL
 C:\Users\DEV-NATALI\Desktop\GLB.DATI\GLB.DATI\obj\Debug\net6.0-windows\GLB.DATI.pdb
 C:\Users\DEV-NATALI\Desktop\GLB.DATI\GLB.DATI\obj\Debug\net6.0-windows\GLB.DATI.genruntimeconfig.cache
 C:\Users\DEV-NATALI\Desktop\GLB.DATI\GLB.DATI\obj\Debug\net6.0-windows\ref\GLB.DATI.dll
+C:\Users\DEV-NATALI\Desktop\GLB.DATI\GLB.DATI\bin\Debug\net6.0-windows\GLB.DATI.dll.config

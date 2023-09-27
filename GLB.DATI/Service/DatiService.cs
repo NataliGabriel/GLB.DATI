@@ -16,36 +16,48 @@ namespace GLB.DATI.Service
         public static string tokenAPI = "vTyu1k4Iyi3jxgyrCk9pR74BveA8UL3t3VzHRWV6";
         public async Task<string> MontaJSONRegistro(globalModel model)
         {
-            Registro request = new Registro();
+            try
+            {
+                Registro request = new Registro();
 
-            request.numero_do_embarque = model.NR_EMBARQUE.Replace("PO#", "");
-            request.declaracao_importacao = model.DEC_IMP;
-            request.numero_da_transmissao_di = model.NR_TRANSMISSAO ?? "";
-            request.data_registro_de_di = model.DT_REGISTRO.ToString("yyyy-MM-dd HH:mm:ss");
-            request.base64_pdf_di = RetornaBASE64().Result.BASE64_DI ?? "a";
-            request.base64_xml_di = "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4=";
+                request.numero_do_embarque = model.NR_EMBARQUE.Replace("PO#", "");
+                request.declaracao_importacao = model.DEC_IMP;
+                request.numero_da_transmissao_di = model.NR_TRANSMISSAO ?? "";
+                request.data_registro_de_di = model.DT_REGISTRO.ToString("yyyy-MM-dd HH:mm:ss");
+                request.base64_pdf_di = RetornaBASE64().Result.BASE64_DI ?? "a";
+                request.base64_xml_di = "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4=";
 
-            return JsonSerializer.Serialize(request);
+                return JsonSerializer.Serialize(request);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); return null; }
         }
         public async Task<string> MontaJSONCanal(globalModel model)
         {
-            Canal request = new Canal();
+            try
+            {
+                Canal request = new Canal();
 
-            request.numero_do_embarque = model.NR_EMBARQUE.Replace("PO#", "");
-            request.declaracao_importacao_canal = model.DEC_IMP_CANAL;
+                request.numero_do_embarque = model.NR_EMBARQUE.Replace("PO#", "");
+                request.declaracao_importacao_canal = model.DEC_IMP_CANAL;
 
-            return JsonSerializer.Serialize(request);
+                return JsonSerializer.Serialize(request);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); return null; }
         }
         public async Task<string> MontaJSON_CI(globalModel model)
         {
-            CI request = new CI();
+            try
+            {
+                CI request = new CI();
 
-            request.numero_do_embarque = model.NR_EMBARQUE.Replace("PO#", "");
-            request.data_da_liberacao = model.DT_ENTREGA_TRANSP.ToString("yyyy-MM-dd HH:mm:ss");
-            request.data_do_desembaraco = model.DT_DESEMBARACO.ToString("yyyy-MM-dd HH:mm:ss");
-            request.base64_pdf = RetornaBASE64().Result.BASE64_DI ?? "a";
+                request.numero_do_embarque = model.NR_EMBARQUE.Replace("PO#", "");
+                request.data_da_liberacao = model.DT_ENTREGA_TRANSP.ToString("yyyy-MM-dd HH:mm:ss");
+                request.data_do_desembaraco = model.DT_DESEMBARACO.ToString("yyyy-MM-dd HH:mm:ss");
+                request.base64_pdf = RetornaBASE64().Result.BASE64_DI ?? "a";
 
-            return JsonSerializer.Serialize(request);
+                return JsonSerializer.Serialize(request);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); return null; }
         }
         globalModel? IDatiService.montaModel(string nReferencia, int i = 0)
         {
@@ -93,6 +105,7 @@ namespace GLB.DATI.Service
                 else
                 {
                     ReferenceEquals(model, new Exception());
+                    Environment.Exit(0);
                     return null;
                 }
             }
@@ -105,18 +118,22 @@ namespace GLB.DATI.Service
 
         public async Task<string?> RetornaResponse(string requestJson, string endPoint)
         {
-            HttpClient _client = new HttpClient();
-            var request = new HttpRequestMessage(HttpMethod.Put, $"{urlBase}{endPoint}");
-            _client.DefaultRequestHeaders.Clear();
-            _client.DefaultRequestHeaders.Add("X-Api-Key", tokenAPI);
+            try
+            {
+                HttpClient _client = new HttpClient();
+                var request = new HttpRequestMessage(HttpMethod.Put, $"{urlBase}{endPoint}");
+                _client.DefaultRequestHeaders.Clear();
+                _client.DefaultRequestHeaders.Add("X-Api-Key", tokenAPI);
 
-            var content = new StringContent(requestJson, null, "application/json");
-            request.Content = content;
-            var response = _client.SendAsync(request);
+                var content = new StringContent(requestJson, null, "application/json");
+                request.Content = content;
+                var response = _client.SendAsync(request);
 
-            Task.WaitAll();
+                Task.WaitAll();
 
-            return JObject.Parse(response.Result.Content.ReadAsStringAsync().Result).ToString();
+                return JObject.Parse(response.Result.Content.ReadAsStringAsync().Result).ToString();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); return null; }
         }
     }
 }

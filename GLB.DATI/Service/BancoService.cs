@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -12,11 +13,16 @@ namespace GLB.DATI.Service
 {
     public class BancoService
     {
-        public SqlConnection _conexao = new SqlConnection(@"Data Source= localhost;
+        public static string ipGlobal = ConfigurationManager.AppSettings["ipConexao"];
+        public static string SenhaGlobal = ConfigurationManager.AppSettings["pass"] == "k" ? "kurumin" : "S0lut@3e4r";
+
+        public SqlConnection _conexao = new SqlConnection(@$"Data Source= {ipGlobal};
                                                             Initial Catalog=SISTEMA_GLOBAL;
-                                                            Trusted_Connection=True;
+                                                            Persist Security Info=True;
+                                                            User ID=global;
+                                                            Password={SenhaGlobal};
                                                             MultipleActiveResultSets=True;
-                                                            Connection Timeout=5"); 
+                                                            Connection Timeout=5");
         public string _nRefencia = "";
         public BancoService(string nReferencia)
         {
@@ -24,7 +30,11 @@ namespace GLB.DATI.Service
         }
         public globalModel? BuscaRegistro()
         {
-            string sSql = @$"SELECT 
+            try
+            {
+
+
+                string sSql = @$"SELECT 
                             	NR_DI AS DEC_IMP, 
                             	DATA_REG_DI_SISCOMEX AS DT_REGISTRO, 
                             	DT_NR_TRANS_REG AS NR_TRANSMISSAO, 
@@ -34,12 +44,15 @@ namespace GLB.DATI.Service
                             		WHERE 
                             			N_REFERENCIA = '{_nRefencia}'";
 
-            return _conexao.QueryFirst<globalModel?>(sSql);
-
-        } 
+                return _conexao.QueryFirst<globalModel>(sSql);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); return null; }
+        }
         public globalModel? BuscaCanal()
         {
-            string sSql = @$"SELECT
+            try
+            {
+                string sSql = @$"SELECT
                                 CASE
                                     WHEN CANAL = 'D' THEN 'Verde'
                                     WHEN CANAL = 'L' THEN 'Amarelo'
@@ -53,11 +66,15 @@ namespace GLB.DATI.Service
                             		WHERE 
                             			N_REFERENCIA = '{_nRefencia}'";
 
-            return _conexao.QueryFirst<globalModel?>(sSql);
+                return _conexao.QueryFirst<globalModel?>(sSql);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); return null; }
         }
         public globalModel? BuscaCI()
         {
-            string sSql = @$"SELECT
+            try
+            {
+                string sSql = @$"SELECT
                                 S_REFERENCIA AS NR_EMBARQUE,
 								DT_ENTREGA_TRANSP,
 								DT_DESEMBARACO
@@ -66,7 +83,9 @@ namespace GLB.DATI.Service
                             		WHERE 
                             			N_REFERENCIA ='{_nRefencia}'";
 
-            return _conexao.QueryFirst<globalModel?>(sSql);
+                return _conexao.QueryFirst<globalModel?>(sSql);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); return null; }
         }
     }
 }
