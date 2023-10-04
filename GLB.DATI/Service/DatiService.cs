@@ -6,7 +6,7 @@ using System.Xml.Linq;
 using GLB.DATI.Model;
 using GLB.DATI.Service.Interface;
 using Newtonsoft.Json.Linq;
-using static GLB.DATI.JsonModel.jsonModel;
+using static GLB.DATI.Model.jsonModel.DespachanteJSON;
 
 namespace GLB.DATI.Service
 {
@@ -59,7 +59,7 @@ namespace GLB.DATI.Service
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); return null; }
         }
-        globalModel? IDatiService.montaModel(string nReferencia, int i = 0)
+        globalModel? IDatiService.montaModel(string nReferencia, int i = 0) 
         {
             try
             {

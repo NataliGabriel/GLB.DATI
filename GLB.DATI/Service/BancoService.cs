@@ -19,7 +19,7 @@ namespace GLB.DATI.Service
         public SqlConnection _conexao = new SqlConnection(@$"Data Source= {ipGlobal};
                                                             Initial Catalog=SISTEMA_GLOBAL;
                                                             Persist Security Info=True;
-                                                            User ID=global;
+                                                            User ID=sa;
                                                             Password={SenhaGlobal};
                                                             MultipleActiveResultSets=True;
                                                             Connection Timeout=5");

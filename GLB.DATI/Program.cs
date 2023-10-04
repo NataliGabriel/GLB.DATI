@@ -10,12 +10,12 @@ namespace GLB.DATI
         {
             try
             {
-                var process = args[0];
-                var action = args[1];
+                //var process = args[0];
+                //var action = args[1];
                 Console.WriteLine("Iniciando processo: ");
-                Console.WriteLine(args[0]);
+                //Console.WriteLine(args[0]);
 
-                RequisicaoAPI requisicao = new RequisicaoAPI(process, action);
+                RequisicaoAPI requisicao = new RequisicaoAPI("DSSAO0126-0423", "0"/*process, action*/);
 
                 var response = requisicao.EnviaAPI().Result;
 

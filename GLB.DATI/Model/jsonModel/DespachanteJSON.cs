@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GLB.DATI.JsonModel
+namespace GLB.DATI.Model.jsonModel
 {
-    public class jsonModel
+    public class DespachanteJSON
     {
         public class Registro
         {

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GLB.DATI.JsonModel;
-using GLB.DATI.Model;
+﻿using GLB.DATI.Model;
 
 namespace GLB.DATI.Service.Interface
 {
